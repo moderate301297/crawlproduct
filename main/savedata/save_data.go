@@ -12,7 +12,7 @@ type DataWeb struct {
 
 // save data to mysql
 func SaveData(title string, linkPath string, linkImage string, link string) {
-	_, err := dbconnection.Connect.Exec("insert products set title= ?, link_path = ?, link_image = ?, link = ?", title, linkPath, linkImage, link)
+	_, err := dbconnection.ConnectNew.Exec("insert products set title= ?, link_path = ?, link_image = ?, link = ?", title, linkPath, linkImage, link)
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
@@ -20,7 +20,7 @@ func SaveData(title string, linkPath string, linkImage string, link string) {
 
 // save url error
 func SaveUrlErrorProduct(url string) {
-	_, err := dbconnection.Connect.Exec("insert url_error set url = ?", url)
+	_, err := dbconnection.ConnectNew.Exec("insert url_error set url = ?", url)
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}

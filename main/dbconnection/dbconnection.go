@@ -9,6 +9,7 @@ import (
 
 var (
 	Connect *sql.DB
+	ConnectNew *sql.DB
 )
 
 func init() {
@@ -17,8 +18,13 @@ func init() {
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
+	ConnectNew, err = sql.Open("mysql", "hihi:beeketing@tcp(localhost:3306)/product_walmart")
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
 }
 
 func Close() {
 	Connect.Close()
+	ConnectNew.Close();
 }

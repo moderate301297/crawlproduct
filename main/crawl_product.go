@@ -1,4 +1,4 @@
-package crawlproduct
+package main
 
 import (
 	"fmt"
